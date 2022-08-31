@@ -12,7 +12,19 @@ on:
     types: 
       - closed
   workflow_dispatch:
+  schedule:
+  - cron: '30 15 31 AUG 3'
   
+#┌───────────── minute (0 - 59)
+#│ ┌───────────── hour (0 - 23)
+#│ │ ┌───────────── day of the month (1 - 31)
+#│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+#│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+#│ │ │ │ │
+#│ │ │ │ │
+#│ │ │ │ │
+#* * * * *
+
 jobs: 
   build-java-project:
    # runs-on: ubuntu-latest
