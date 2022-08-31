@@ -26,10 +26,11 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
-      - name: Set up JDK 12
+      - name: Set up JDK ${{matrix.java}}
         uses: actions/setup-java@v2
         with:
           java-version: ${{matrix.java}}
           java-package: jdk
+          distribution: adopt
       - name: Build with Maven
         run: mvn verify
