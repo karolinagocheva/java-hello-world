@@ -1,0 +1,18 @@
+name: Build and deploy BE tag to AWS
+
+on:
+  workflow_dispatch:
+   inputs:
+     tag: 
+       required: true
+jobs:
+  build-deploy-backend-tag-aws:
+    runs-on: ubuntu-latest
+    if: endsWith( github.ref, inputs.tag )
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set tag env
+        run: echo "GIT_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: test
+        run: echo $GIT_TAG
+      
